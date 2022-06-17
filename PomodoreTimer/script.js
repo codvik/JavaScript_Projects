@@ -1,87 +1,36 @@
-//getting element
-let settings = document.getElementsByClassName('settings')[0];
-let start = document.getElementsByClassName('start')[0];
+
+import {formatTime,isTimeValid,stopClock} from './utility.js';
+
+const settings = document.getElementsByClassName('settings')[0];
+const start = document.getElementsByClassName('start')[0];
+const minutes = document.querySelectorAll('input')[0];
+const seconds = document.querySelectorAll('input')[1];
 
 
-minutes = document.querySelectorAll('input')[0];
-seconds = document.querySelectorAll('input')[1];
-
-//start-stop
 let timerId=null;
 
-
-
-
-
-function startTimer(){
-
-    function formatTime(input){
-    if(input<10 && input>=0){
-        input = "0" + input;
-    }
-    return input;
-    }
+const startTimer=()=>{  
+    let initialMinutes = document.querySelectorAll('input')[0];
+    let initialSeconds = document.querySelectorAll('input')[1];
    
-    function isTimeValid(minutes,seconds){
-       
-        if(minutes<0 || seconds<0 || minutes>=60 || seconds>=60 )return false;
-        return true;
-    }
+    let minutesCounter = initialMinutes.value;
+    let secondsCounter = initialSeconds.value;
 
-
-    function makeRingRed(seconds,minutes){
-        if(minutes==0 && seconds<=9) document.querySelectorAll('circle')[0].style.stroke="red";
-        else document.querySelectorAll('circle')[0].style.stroke="#09A65A"; 
-    }
-
-    function isTimesUp(minutes){
-            if(minutes<=0){initialSeconds.value = 00;return true;}
-            return false;
-    }
-        
-    initialMinutes = document.querySelectorAll('input')[0];
-    initialSeconds = document.querySelectorAll('input')[1];
-   
-
-    if(isTimeValid(initialMinutes.value,initialSeconds.value)==false){
-        alert("please provide a valid input");
+    if(!isTimeValid(minutesCounter,secondsCounter)){
+        alert("Please provide a valid input. ");
         return;
     }
 
-    let secondsCounter = initialSeconds.value;
-    let minutesCounter = initialMinutes.value;
-
-
-    function execute(){
-        //     if(secondsCounter <= 1){ 
-        //     minutesCounter--;
-        //     initialMinutes.value = formatTime(minutesCounter);
-        //     secondsCounter=60;
-        //     initialSeconds.value = 59;
-        //         if(minutesCounter<=0) {
-        //              clearInterval(timerId);
-        //              alert("timesUP");
-        //             }
-        //     }
-        // else {
-        //     secondsCounter--;
-        //     initialSeconds.value = formatTime(secondsCounter);
-        // }
-       
-        makeRingRed(secondsCounter,minutesCounter); 
+    const execute=()=>{
          if(secondsCounter <=0){
             if(minutesCounter<=0){
-                initialSeconds.value="0"+0;
-                clearInterval(timerId);
-                alert("timesUP"); 
-                start.innerHTML="start";
-                document.querySelectorAll('circle')[0].style.stroke="#09A65A";
-                timerId=null;
+                stopClock(initialSeconds,timerId);
+                start.innerHTML="STOP";
                 return;  
              }
              minutesCounter--;
              initialMinutes.value = formatTime(minutesCounter);
-             secondsCounter=60;
+             secondsCounter=59;
              initialSeconds.value=59;
          }
          else{
@@ -90,7 +39,8 @@ function startTimer(){
          }
 
     }
-   timerId = setInterval(execute,1000);
+
+    timerId = setInterval(execute,1000);
 }
 
 
@@ -108,7 +58,7 @@ start.addEventListener('click',function(){
     }
 })
 
-//settings
+
 
 settings.addEventListener('click',function(){
     if(timerId===null){
@@ -117,4 +67,3 @@ settings.addEventListener('click',function(){
     }
 })
 
-//color--change
