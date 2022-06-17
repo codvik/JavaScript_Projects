@@ -23,7 +23,8 @@ function startTimer(){
     }
    
     function isTimeValid(minutes,seconds){
-        if(minutes<0 || seconds<0 || minutes>=60 || seconds>=60)return false;
+        console.log(minutes[0]);
+        if(minutes<0 || seconds<0 || minutes>=60 || seconds>=60 || )return false;
         return true;
     }
 
@@ -74,7 +75,7 @@ function startTimer(){
                 clearInterval(timerId);
                 alert("timesUP"); 
                 start.innerHTML="start";
-document.querySelectorAll('circle')[0].style.stroke="#09A65A";
+                document.querySelectorAll('circle')[0].style.stroke="#09A65A";
                 timerId=null;
                 return;  
              }
