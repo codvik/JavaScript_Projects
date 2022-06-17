@@ -23,8 +23,8 @@ function startTimer(){
     }
    
     function isTimeValid(minutes,seconds){
-        console.log(minutes[0]);
-        if(minutes<0 || seconds<0 || minutes>=60 || seconds>=60 || )return false;
+       
+        if(minutes<0 || seconds<0 || minutes>=60 || seconds>=60 )return false;
         return true;
     }
 
