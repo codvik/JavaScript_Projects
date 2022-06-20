@@ -1,13 +1,12 @@
 const keys = document.querySelectorAll(".key");
 
-export function getKeyName(event){
-    //shfit key prevent default
+export const getKeyName=(event)=>{
     event.preventDefault();
     const keyName = event.key.toUpperCase();
     return keyName;
 }
 
-export function getElementWithKey(keyName){ 
+export const getElementWithKey=(keyName)=>{ 
     let element =null;
     if(keyName =='\\'){
         element = document.querySelector('[data-key="bs"]');
@@ -18,11 +17,11 @@ export function getElementWithKey(keyName){
      return element;
 }
 
-export function makeKeyUnjiggle(element){
+export const makeKeyUnjiggle=(element)=>{
     element.setAttribute('class','key');
 }
 
-export function makeRandomKeyJiggle(){
+export const makeRandomKeyJiggle=()=>{
     let randomNumber = Math.floor(Math.random() * keys.length);
     let randomKey = keys[randomNumber];
     randomKey.setAttribute("class", "key jiggle");
