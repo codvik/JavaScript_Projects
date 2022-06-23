@@ -1,5 +1,3 @@
-const subtotalTag = document.querySelector('.amount.price.subtotal');
-
 export const createImg = (src, alt, plate) => {
   let img = document.createElement('img');
   img.setAttribute('src', src);
@@ -29,7 +27,7 @@ export const createButtonTag = (cls) => {
   return increaseItem;
 };
 
-export const addItemToCart = (btn, id) => {
+export const addItemToCart = (btn) => {
   btn.classList.remove('add');
   btn.classList.add('in-cart');
   btn.innerHTML = '';

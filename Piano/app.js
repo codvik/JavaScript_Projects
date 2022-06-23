@@ -3,7 +3,7 @@ let blackKeys = document.querySelectorAll('.black-keys');
 
 whiteKeys.forEach((e, i) => {
   e.parentElement.setAttribute('path', 'audio/key-' + (i + 1) + '.mp3');
-  e.addEventListener('click', (event) => {
+  e.addEventListener('click', () => {
     let path = e.parentElement.getAttribute('path');
     let audio = new Audio(path);
     audio.play();
@@ -12,7 +12,7 @@ whiteKeys.forEach((e, i) => {
 
 blackKeys.forEach((e, i) => {
   e.parentElement.setAttribute('path', 'audio/key-' + (i + 14) + '.mp3');
-  e.addEventListener('click', (event) => {
+  e.addEventListener('click', () => {
     let path = e.parentElement.getAttribute('path');
     let audio = new Audio(path);
     audio.play();

@@ -1,5 +1,4 @@
 const circle = document.querySelectorAll('circle')[0];
-const start = document.getElementsByClassName('start')[0];
 export const formatTime = (input) => {
   if (input < 10 && input >= 0) return '0' + input;
   return input;

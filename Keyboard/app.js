@@ -6,8 +6,6 @@ import {
   makeKeyRed
 } from './utility.js';
 
-const key = document.querySelectorAll('.key');
-
 document.addEventListener('keydown', (event) => {
   const keyName = getKeyName(event);
   const element = getElementWithKey(keyName);
