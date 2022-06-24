@@ -1,11 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
-span.no_selection {
+@import 'https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap';
+
+span.no-selection {
   user-select: none; /* standard syntax */
-  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
-  -moz-user-select: none; /* mozilla browsers */
-  -khtml-user-select: none; /* webkit (konqueror) browsers */
-  -ms-user-select: none; /* IE10+ */
 }
+
 body {
   background: #f3f3f3;
   color: #4e4e4e;
@@ -24,7 +22,7 @@ body {
 }
 
 .cover {
-  filter: drop-shadow(0px 4px 24px #453f3f);
+  filter: drop-shadow(0 4px 24px #453f3f);
 }
 
 .content {
@@ -42,7 +40,7 @@ h1 {
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #a7a7a7;
-  margin: 0 0 40px 0;
+  margin: 0 0 40px;
   padding: 0;
 }
 
