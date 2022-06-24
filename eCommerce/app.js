@@ -67,7 +67,7 @@ const appendItem = (btn, id) => {
   let price = createPtag('price', '$' + menuItems[id].price / 100);
   divContent.append(price);
   li.append(divContent);
-  let divBtn = createDiv('quantity-wrapper');
+  let divBtn = createDiv('quantity__wrapper');
   let decreaseValue = document.createElement('button');
   decreaseValue.setAttribute('class', 'decrease');
 
