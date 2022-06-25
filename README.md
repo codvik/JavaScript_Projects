@@ -1,1 +1,1 @@
-# JavaScritpt_Projects
+# JavaScritpt-Projects
